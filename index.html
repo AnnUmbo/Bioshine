@@ -17,7 +17,7 @@
             --accent-dark: #237033;
         }
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: #222;
             -webkit-font-smoothing:antialiased;
@@ -56,6 +56,9 @@
             font-size: 1.05rem;
             line-height: 1.6;
         }
+        /* Force paragraph text to 14px for consistency */
+        p { font-size: 18px; }
+        p.lead { font-size: 18px; line-height: 1.6; }
         .card-product {
             transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s ease;
             border: none;
@@ -121,6 +124,16 @@
         .info-card:hover .info-icon{ transform: scale(1.06); background: linear-gradient(180deg, rgba(47,158,68,0.18), rgba(47,158,68,0.08)); }
         .info-card .card-body{ padding-top:1.25rem; }
         .info-card .card-title{ margin-bottom:0.5rem; }
+            /* Breathing text effect: slight scale + green color on inhale */
+            .breath{ display:inline-block; animation: breathe 3s ease-in-out infinite; transform-origin: center; }
+            @keyframes breathe{
+                0% { transform: scale(1); color: var(--muted); }
+                45% { transform: scale(1.03); color: var(--accent); }
+                55% { transform: scale(1.02); color: var(--accent); }
+                100% { transform: scale(1); color: var(--muted); }
+            }
+    /* Emphasize welcome strong in informacion */
+    #informacion .lead strong{ font-weight: 800; font-size:1.18rem; color:#0b3f22; display:block; }
     </style>
 </head>
 <body>
@@ -142,31 +155,38 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Quiénes somos</a>
+                        <a class="nav-link" href="index.html"><span class="breath">BIOSHINE</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="somos.html">Información</a>
+                        <a class="nav-link" href="somos.html">Quiénes somos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tienda.html">Tienda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
+                        <a class="nav-link" href="somos.html#contacto">Contacto</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5">
+    <div class="container my-2">
         <!-- Sección de Información -->
         <section id="informacion" class="text-center">
-            <div class="py-5 bg-white rounded shadow-sm">
+            <div class="py-1 bg-white rounded shadow-sm">
                 <img src="marca.png" alt="Logo de la Tienda" class="d-inline-block align-text-top rounded img-fluid" style="max-height:300px;">
-                <p class="lead text-muted mt-3">Bienvenido a nuestro proyecto de mantenimiento de las áreas verdes</p>
-                <p class="text-muted mx-auto" style="max-width:800px;">En BIOSHINE, trabajamos con propósito.
-Nos dedicamos a crear y mantener espacios verdes que inspiran, sanan y conectan. Cada rincón que cultivamos refleja nuestro compromiso con la limpieza, el cuidado y la vida. Promovemos el respeto profundo por la naturaleza, no solo como recurso, sino como compañera esencial en el bienestar de las personas y las comunidades.
-Creemos que un entorno verde no es solo decoración: es salud, es equilibrio, es inspiración. Por eso, cada planta, cada diseño y cada acción que emprendemos está pensada para generar armonía, fomentar hábitos sostenibles y despertar una conexión auténtica con el entorno.
+                <p class="lead text-muted mt-3"><strong>Bienvenido a nuestro proyecto de mantenimiento de las <span class="breath">áreas verdes</span></strong></p>
+                <p class="text-muted mx-auto" style="max-width:800px; white-space:pre-wrap; line-height:1.7;">En <span class="breath"><strong>BIOSHINE</strong></span> nos dedicamos a crear y mantener espacios verdes que inspiran, sanan y conectan.
+Cada rincón que cultivamos refleja nuestro compromiso con la limpieza, el cuidado y la vida. Promovemos el respeto profundo por la naturaleza, no solo como recurso, sino como compañera esencial en el bienestar de las personas y las comunidades.
+<span class="breath"><strong>BIOSHINE</strong></span> es…
+🌿 <span class="breath">Inspiración viva</span>
+🌱 <span class="breath">Cuidado consciente</span>
+🌎 <span class="breath">Respeto profundo</span>
+💚 <span class="breath">Conexión auténtica</span>
+Cada hoja cuenta una historia.
+Cada rincón verde que cultivamos es un suspiro de vida, una pausa de paz.
+No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
 </p>
 
                 <div class="row mt-4 g-4">
@@ -205,12 +225,91 @@ Creemos que un entorno verde no es solo decoración: es salud, es equilibrio, es
                     </div>
                 </div>
 
+                <!-- Video cards (2 por fila) -->
+                <div class="row g-4 mb-3 justify-content-center" style="padding-top:20px;">
+                    <div class="col-12 col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe id="yt-player-1" src="https://www.youtube.com/embed/oWnqT0Xfcxk?rel=0&enablejsapi=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title mb-0">Importancia de las áreas verdes urbanas</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="ratio ratio-16x9">
+                                <iframe id="yt-player-2" src="https://www.youtube.com/embed/a_3jIgzYn1A?rel=0&enablejsapi=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title mb-0">¿Cómo cuidar las áreas verdes de mi parque?</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                    <!-- Fila adicional de videos #2 -->
+                    <div class="row g-4 mb-3 justify-content-center">
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm">
+                                <div class="ratio ratio-16x9">
+                                    <iframe id="yt-player-3" src="https://www.youtube.com/embed/2zdmyS6o9mw" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title mb-0">Cuidados para áreas verdes en casa</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm">
+                                <div class="ratio ratio-16x9">
+                                    <iframe id="yt-player-4" src="https://www.youtube.com/embed/asxocLqVlSo" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title mb-0">Herramientas de jardinería</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fila adicional de videos #3 -->
+                    <div class="row g-4 mb-3 justify-content-center" style="padding-bottom:20px;">
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm">
+                                <div class="ratio ratio-16x9">
+                                    <iframe id="yt-player-5" src="https://www.youtube.com/embed/ePuxRIvSb9g" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title mb-0">¿Qué beneficios tienen las zonas verdes de las ciudades?</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card shadow-sm">
+                                <div class="ratio ratio-16x9">
+                                    <iframe id="yt-player-6" src="https://www.youtube.com/embed/5KorAaafVNQ" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title mb-0">Importancia de las zonas verdes</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 <div class="row mt-3 justify-content-center">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold">Horarios de atención</h6>
-                        <p class="text-muted mb-1">Lunes a Viernes: 9:00 - 18:00</p>
-                        <p class="text-muted">Sábados: 9:00 - 13:00</p>
-                        <a href="somos.html" class="btn btn-primary mt-3">Visita nuestra tienda</a>
+                    <div class="col-12 col-md-6">
+                        <div class="card info-card h-100">
+                            <div class="card-body text-center">
+                                <div class="info-icon mb-3">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" fill="var(--accent)"/><path d="M12 7v5l4 2" stroke="rgba(255,255,255,0.95)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <h5 class="card-title">Horarios de atención</h5>
+                                <p class="text-muted mb-1">Lunes a Viernes: 9:00 - 18:00</p>
+                                <p class="text-muted">Sábados: 9:00 - 13:00</p>
+                                <a href="somos.html" class="btn btn-primary mt-3">Visita nuestra tienda</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -288,6 +387,36 @@ Creemos que un entorno verde no es solo decoración: es salud, es equilibrio, es
                 setTimeout(()=>{ status.textContent = ''; }, 6000);
             });
         })();
+    </script>
+    <!-- YouTube IFrame API: gestionar reproducción múltiple -->
+    <script>
+        // Load YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var players = {};
+        function onYouTubeIframeAPIReady(){
+            players['yt-player-1'] = new YT.Player('yt-player-1', { events: { 'onStateChange': onPlayerStateChange } });
+            players['yt-player-2'] = new YT.Player('yt-player-2', { events: { 'onStateChange': onPlayerStateChange } });
+            // Additional players added
+            players['yt-player-3'] = new YT.Player('yt-player-3', { events: { 'onStateChange': onPlayerStateChange } });
+            players['yt-player-4'] = new YT.Player('yt-player-4', { events: { 'onStateChange': onPlayerStateChange } });
+            players['yt-player-5'] = new YT.Player('yt-player-5', { events: { 'onStateChange': onPlayerStateChange } });
+            players['yt-player-6'] = new YT.Player('yt-player-6', { events: { 'onStateChange': onPlayerStateChange } });
+        }
+
+        function onPlayerStateChange(event){
+            // Cuando un player empieza a reproducir, pausar los demás
+            if(event.data === YT.PlayerState.PLAYING){
+                for(var id in players){
+                    if(players[id] && players[id].getIframe().id !== event.target.getIframe().id){
+                        try{ players[id].pauseVideo(); }catch(e){}
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
