@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIOSHINE</title>
-    <!-- Enlace a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Enlace a Google Fonts para tipografías agradables -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root{
             --bg: #f8f9fa;
             --card: #ffffff;
             --muted: #6c757d;
-            --accent: #2f9e44; /* verde agradable */
+            --accent: #2f9e44;
             --accent-dark: #237033;
         }
         body {
@@ -56,7 +54,6 @@
             font-size: 1.05rem;
             line-height: 1.6;
         }
-        /* Force paragraph text to 14px for consistency */
         p { font-size: 18px; }
         p.lead { font-size: 18px; line-height: 1.6; }
         .card-product {
@@ -102,11 +99,9 @@
             padding: 4.5rem 0;
         }
         footer p{ opacity: .9; }
-        /* small tweaks */
         @media(min-width:992px){
             .navbar-brand img{ max-height:56px; }
         }
-        /* Friendly info cards */
         .info-card{
             border-radius:14px;
             overflow:visible;
@@ -124,7 +119,6 @@
         .info-card:hover .info-icon{ transform: scale(1.06); background: linear-gradient(180deg, rgba(47,158,68,0.18), rgba(47,158,68,0.08)); }
         .info-card .card-body{ padding-top:1.25rem; }
         .info-card .card-title{ margin-bottom:0.5rem; }
-            /* Breathing text effect: slight scale + green color on inhale */
             .breath{ display:inline-block; animation: breathe 3s ease-in-out infinite; transform-origin: center; }
             @keyframes breathe{
                 0% { transform: scale(1); color: var(--muted); }
@@ -132,18 +126,13 @@
                 55% { transform: scale(1.02); color: var(--accent); }
                 100% { transform: scale(1); color: var(--muted); }
             }
-    /* Emphasize welcome strong in informacion */
     #informacion .lead strong{ font-weight: 800; font-size:1.18rem; color:#0b3f22; display:block; }
     </style>
 </head>
 <body>
-
-    <!-- Sección de Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
-            <!-- Logo central con desplazamiento -->
                 <a class="navbar-brand mx-auto" href="#">
-                <!-- Puedes usar una imagen aquí, o un simple texto -->
                 <img src="Titulo.png" alt="Logo de la Tienda" class="d-inline-block align-text-top rounded img-fluid" style="max-height:56px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,7 +140,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!-- Se pueden añadir más enlaces aquí si se desea -->
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -172,7 +160,6 @@
     </nav>
 
     <div class="container my-2">
-        <!-- Sección de Información -->
         <section id="informacion" class="text-center">
             <div class="py-1 bg-white rounded shadow-sm">
                 <img src="marca.png" alt="Logo de la Tienda" class="d-inline-block align-text-top rounded img-fluid" style="max-height:300px;">
@@ -225,7 +212,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
                     </div>
                 </div>
 
-                <!-- Video cards (2 por fila) -->
                 <div class="row g-4 mb-3 justify-content-center" style="padding-top:20px;">
                     <div class="col-12 col-md-6">
                         <div class="card shadow-sm">
@@ -249,7 +235,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
                     </div>
                 </div>
                 
-                    <!-- Fila adicional de videos #2 -->
                     <div class="row g-4 mb-3 justify-content-center">
                         <div class="col-12 col-md-6">
                             <div class="card shadow-sm">
@@ -273,7 +258,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
                         </div>
                     </div>
 
-                    <!-- Fila adicional de videos #3 -->
                     <div class="row g-4 mb-3 justify-content-center" style="padding-bottom:20px;">
                         <div class="col-12 col-md-6">
                             <div class="card shadow-sm">
@@ -315,18 +299,14 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
             </div>
         </section>
 
-        
-    <!-- Pie de página -->
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <p class="mb-0">&copy; 2025 BIOSHINE. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Enlace a Bootstrap JS con Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Smooth scrolling ajustado para navbar sticky: desplaza por la altura del navbar
         function scrollToTarget(href, smooth = true){
             if (!href || href === '#') {
                 window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
@@ -336,7 +316,7 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
             if (!target) return;
             const nav = document.querySelector('.navbar');
             const navHeight = nav ? nav.offsetHeight : 0;
-            const extra = 12; // margen adicional
+            const extra = 12;
             const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extra;
             window.scrollTo({ top: Math.max(0, targetTop), behavior: smooth ? 'smooth' : 'auto' });
         }
@@ -349,7 +329,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
             });
         });
 
-        // Si la página se abre con un hash (por ejemplo desde tienda.html#quienes-somos), ajustar scroll al cargar
         window.addEventListener('load', function(){
             if (location.hash) {
                 // Usar un pequeño delay para asegurar que el layout y el navbar estén renderizados
@@ -358,7 +337,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
         });
     </script>
     <script>
-        // Manejo del formulario de comentarios (cliente)
         (function(){
             const form = document.getElementById('commentForm');
             const status = document.getElementById('cf-status');
@@ -375,22 +353,17 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
                     return;
                 }
 
-                // Simular envío exitoso (sin backend)
                 status.classList.remove('text-danger');
                 status.classList.add('text-success');
                 status.textContent = 'Gracias por tu comentario. ¡Lo recibimos correctamente!';
 
-                // Limpiar mensaje y opcionalmente conservar nombre/email
                 document.getElementById('cf-message').value = '';
 
-                // Quitar el mensaje de estado después de unos segundos
                 setTimeout(()=>{ status.textContent = ''; }, 6000);
             });
         })();
     </script>
-    <!-- YouTube IFrame API: gestionar reproducción múltiple -->
     <script>
-        // Load YouTube IFrame API
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -400,7 +373,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
         function onYouTubeIframeAPIReady(){
             players['yt-player-1'] = new YT.Player('yt-player-1', { events: { 'onStateChange': onPlayerStateChange } });
             players['yt-player-2'] = new YT.Player('yt-player-2', { events: { 'onStateChange': onPlayerStateChange } });
-            // Additional players added
             players['yt-player-3'] = new YT.Player('yt-player-3', { events: { 'onStateChange': onPlayerStateChange } });
             players['yt-player-4'] = new YT.Player('yt-player-4', { events: { 'onStateChange': onPlayerStateChange } });
             players['yt-player-5'] = new YT.Player('yt-player-5', { events: { 'onStateChange': onPlayerStateChange } });
@@ -408,7 +380,6 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
         }
 
         function onPlayerStateChange(event){
-            // Cuando un player empieza a reproducir, pausar los demás
             if(event.data === YT.PlayerState.PLAYING){
                 for(var id in players){
                     if(players[id] && players[id].getIframe().id !== event.target.getIframe().id){
