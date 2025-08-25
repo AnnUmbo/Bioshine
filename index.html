@@ -163,8 +163,32 @@
                         <ul class="list-unstyled">
                             <li class="mb-2"><a href="mailto:bioshine@tutienda.com" class="text-decoration-none text-dark"><strong>Email:</strong> bioshine@tutienda.com</a></li>
                             <li class="mb-2"><a href="tel:+51906456274" class="text-decoration-none text-dark"><strong>Teléfono:</strong> +51 906 456 274</a></li>
-                            <li class="mb-2"><a hr ef="#" class="text-decoration-none text-dark"><strong>Dirección:</strong> Lima, Gamarra</a></li>
+                            <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><strong>Dirección:</strong> Lima, Gamarra</a></li>
                         </ul>
+
+                        <!-- Formulario de comentario -->
+                        <form id="commentForm" class="mt-4">
+                            <h5 class="fw-bold mb-3">Envíanos un comentario</h5>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <label for="cf-name" class="form-label visually-hidden">Nombre</label>
+                                    <input id="cf-name" type="text" class="form-control" placeholder="Nombre (opcional)">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cf-email" class="form-label visually-hidden">Correo</label>
+                                    <input id="cf-email" type="email" class="form-control" placeholder="Correo (obligatorio)">
+                                </div>
+                            </div>
+                            <div class="mb-3 mt-2">
+                                <label for="cf-message" class="form-label">Mensaje</label>
+                                <textarea id="cf-message" class="form-control" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button type="submit" class="btn btn-primary me-3">Enviar comentario</button>
+                                <div id="cf-status" class="text-success"></div>
+                            </div>
+                        </form>
+
                         <div class="mt-4">
                             <a href="#" class="text-decoration-none mx-2"><i class="bi bi-instagram fs-4"></i></a>
                             <a href="#" class="text-decoration-none mx-2"><i class="bi bi-facebook fs-4"></i></a>
@@ -195,6 +219,37 @@
                 });
             });
         });
+    </script>
+    <script>
+        // Manejo del formulario de comentarios (cliente)
+        (function(){
+            const form = document.getElementById('commentForm');
+            const status = document.getElementById('cf-status');
+
+            if (!form) return;
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const msg = document.getElementById('cf-message').value.trim();
+                if (!msg) {
+                    status.classList.remove('text-success');
+                    status.classList.add('text-danger');
+                    status.textContent = 'Por favor escribe un mensaje antes de enviar.';
+                    return;
+                }
+
+                // Simular envío exitoso (sin backend)
+                status.classList.remove('text-danger');
+                status.classList.add('text-success');
+                status.textContent = 'Gracias por tu comentario. ¡Lo recibimos correctamente!';
+
+                // Limpiar mensaje y opcionalmente conservar nombre/email
+                document.getElementById('cf-message').value = '';
+
+                // Quitar el mensaje de estado después de unos segundos
+                setTimeout(()=>{ status.textContent = ''; }, 6000);
+            });
+        })();
     </script>
 </body>
 </html>
