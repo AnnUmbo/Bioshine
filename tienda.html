@@ -13,17 +13,29 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Bioshine</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false">
+        <!-- Logo central con desplazamiento -->
+        <a class="navbar-brand mx-auto" href="index.html">
+            <img src="Titulo.png" alt="Logo de la Tienda" class="d-inline-block align-text-top rounded img-fluid" style="max-height:56px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavTienda" aria-controls="navbarNavTienda" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="nav">
+        <div class="collapse navbar-collapse" id="navbarNavTienda">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- espacio left -->
+            </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link active" href="tienda.html">Tienda</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#quienes-somos">Quiénes Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="tienda.html">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </li>
             </ul>
         </div>
     </div>
