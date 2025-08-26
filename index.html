@@ -28,6 +28,42 @@
             color: #153618;
             letter-spacing: 0.2px;
         }
+        h6 {
+            font-size: 18px;
+        }
+        /* Collapse toggle styling for info cards */
+        .collapse-toggle{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            cursor:pointer;
+            background:none;
+            border:none;
+            color:inherit;
+            padding:0;
+            font: inherit;
+        }
+        .collapse-toggle:focus{ outline: none; box-shadow: none; }
+        .collapse-toggle .chev{ transition: transform .25s ease; display:inline-block; width:18px; height:18px; }
+        .collapse-toggle[aria-expanded="true"] .chev{ transform: rotate(180deg); }
+        /* Ensure headings used as toggles keep their visual weight */
+        h4 { font-size:22px; font-weight:700; line-height:1.15; margin-bottom:.75rem; }
+        h4 .collapse-toggle{ font-size:inherit; font-weight:inherit; line-height:inherit; }
+        /* Collapse toggle styling for Problemática card */
+        .collapse-toggle{
+            display:inline-flex;
+            align-items:center;
+            gap:0.5rem;
+            cursor:pointer;
+            background:none;
+            border:none;
+            color:inherit;
+            font:inherit;
+            padding:0;
+        }
+        .collapse-toggle:focus{ outline: none; box-shadow: none; }
+        .collapse-toggle .chev{ transition: transform .25s ease; display:inline-block; width:18px; height:18px; }
+        .collapse-toggle[aria-expanded="true"] .chev{ transform: rotate(180deg); }
         .navbar-brand {
             font-weight: 700;
             letter-spacing: 1px;
@@ -40,6 +76,7 @@
         .nav-link:hover{
             color: var(--accent-dark);
         }
+    .navbar .nav-link { font-size: 16px; }
         .hero-section {
             background-color: #eef7ef;
             padding: 4.5rem 0;
@@ -152,9 +189,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
-                <a class="navbar-brand mx-auto" href="#">
-                <img src="Titulo.png" alt="Logo de la Tienda" class="d-inline-block align-text-top rounded img-fluid" style="max-height:56px;">
-            </a>
+                <div class="navbar-brand mx-auto" role="img" aria-label="BIOSHINE">
+                    <img src="Titulo.png" alt="Logo de la Tienda" class="d-inline-block align-text-top rounded img-fluid" style="max-height:56px; pointer-events: none;">
+                </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -232,32 +269,85 @@ No diseñamos jardines: tejemos conexiones entre personas y naturaleza.
                     </div>
                 </div>
                     <!-- Problemática y Solución -->
-                    <div class="row mt-5">
+                    <div class="row mt-4">  
                         <div class="col-12">
                             <div class="card bg-white shadow-sm mb-4">
                                 <div class="card-body">
-                                    <h4 class="mb-3">🌍 Problemática: El abandono silencioso de las áreas verdes</h4>
-                                    <p class="text-muted">En muchas comunidades, los espacios verdes se marchitan por falta de cuidado, presupuesto o conciencia. Lo que antes era un rincón de paz se convierte en tierra seca, basura y olvido. Cada hoja caída sin propósito es una historia que se pierde.</p>
-                                    <h6 class="mt-3">Impacto:</h6>
-                                    <ul class="text-muted">
-                                        <li>Aumento del estrés urbano</li>
-                                        <li>Pérdida de biodiversidad local</li>
-                                        <li>Desconexión emocional con la naturaleza</li>
-                                        <li>Deterioro de la imagen comunitaria</li>
-                                    </ul>
+                                    <h4 class="mb-3">
+                                        <button class="collapse-toggle" data-bs-toggle="collapse" data-bs-target="#problematica-body" aria-expanded="false" aria-controls="problematica-body">
+                                            <span>🌍 Problemática</span>
+                                            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#153618" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                    </h4>
+                                    <div class="collapse" id="problematica-body">
+                                        <p class="text-muted">Los espacios verdes se marchitan y se transforman en zonas secas, sucias y olvidadas. Lo que antes era un refugio natural se convierte en símbolo de abandono comunitario.</p>
+                                        <h6 class="mt-3">Listado de problemáticas:</h6>
+                                        <ul class="text-muted">
+                                            <li>Marchitamiento y deterioro de áreas verdes</li>
+                                            <li>Acumulación de basura y pérdida de vegetación</li>
+                                            <li>Invisibilización de espacios naturales en la vida urbana</li>
+                                            <li>Desvinculación emocional con el entorno verde</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-
+                            <div class="card bg-white shadow-sm mb-4">
+                                <div class="card-body">
+                                    <h4 class="mb-3">
+                                        <button class="collapse-toggle" data-bs-toggle="collapse" data-bs-target="#causa-body" aria-expanded="false" aria-controls="causa-body">
+                                            <span>🧩 Causa</span>
+                                            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#153618" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                    </h4>
+                                    <div class="collapse" id="causa-body">
+                                        <p class="text-muted">La falta de presupuesto, planificación y conciencia ambiental provoca el abandono de espacios verdes. Estas causas estructurales y culturales impiden su mantenimiento y regeneración.</p>
+                                        <h6 class="mt-3">Listado de causas:</h6>
+                                        <ul class="text-muted">
+                                            <li>Falta de presupuesto público para áreas verdes</li>
+                                            <li>Ausencia de planificación ecológica en zonas urbanas</li>
+                                            <li>Desinterés ciudadano y escasa educación ambiental</li>
+                                            <li>Prioridad a proyectos inmobiliarios sobre espacios naturales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card bg-white shadow-sm mb-4">
+                                <div class="card-body">
+                                    <h4 class="mb-3">
+                                        <button class="collapse-toggle" data-bs-toggle="collapse" data-bs-target="#impacto-body" aria-expanded="false" aria-controls="impacto-body">
+                                            <span>💥 Impacto</span>
+                                            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#153618" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                    </h4>
+                                    <div class="collapse" id="impacto-body">
+                                        <p class="text-muted">La pérdida de áreas verdes afecta la salud emocional, la biodiversidad y la imagen de la comunidad. Se genera estrés, desconexión con la naturaleza y deterioro ambiental.</p>
+                                        <h6 class="mt-3">Listado de impactos:</h6>
+                                        <ul class="text-muted">
+                                            <li>Aumento del estrés urbano</li>
+                                            <li>Pérdida de biodiversidad local</li>
+                                            <li>Desconexión emocional con la naturaleza</li>
+                                            <li>Deterioro de la imagen comunitaria</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card bg-white shadow-sm">
                                 <div class="card-body">
-                                    <h4 class="mb-3">💚 Solución <span class="breath">BIOSHINE:</span> Restaurar la vida, hoja por hoja</h4>
-                                    <p class="text-muted">En <span class="breath">BIOSHINE</span> no solo limpiamos: cultivamos esperanza. Transformamos espacios olvidados en pulmones vivos que respiran belleza, salud y conexión. Cada intervención es un acto de respeto profundo, donde cada planta cuenta y cada rincón verde vuelve a latir.</p>
-                                    <h6 class="mt-3">Acciones clave:</h6>
-                                    <ul class="text-muted">
-                                        <li>Elaboración de macetas ecológicas</li>
-                                        <li>Concientización sobre la importancia de las áreas verdes</li>
-                                        <li>Asesoría para el diseño y mantenimiento de jardines</li>
-                                    </ul>
+                                    <h4 class="mb-3">
+                                        <button class="collapse-toggle" data-bs-toggle="collapse" data-bs-target="#solucion-body" aria-expanded="false" aria-controls="solucion-body">
+                                            <span>💚 Solución <span class="breath">BIOSHINE:</span> Restaurar la vida, hoja por hoja</span>
+                                            <svg class="chev" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6" stroke="#153618" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                    </h4>
+                                    <div class="collapse" id="solucion-body">
+                                        <p class="text-muted">En <span class="breath">BIOSHINE</span> no solo limpiamos: cultivamos esperanza. Transformamos espacios olvidados en pulmones vivos que respiran belleza, salud y conexión. Cada intervención es un acto de respeto profundo, donde cada planta cuenta y cada rincón verde vuelve a latir.</p>
+                                        <h6 class="mt-3">Acciones clave:</h6>
+                                        <ul class="text-muted">
+                                            <li>Elaboración de macetas ecológicas</li>
+                                            <li>Concientización sobre la importancia de las áreas verdes</li>
+                                            <li>Asesoría para el diseño y mantenimiento de jardines</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
